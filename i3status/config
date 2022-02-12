@@ -7,50 +7,56 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-        output_format = i3bar
-        colors= false
-        color_good = "#d8dee9"
-        color_degraded = "#d8dee9"
-        color_bad = "#d8dee9"
-        markup = pango
-        interval = 5
+    interval = 1
+    colors = true
+    color_good="#FFFFFF"
+    color_degraded="#ffd75f"
+    color_bad="#d75f5f"
 }
 
-order += "ethernet _first_"
-order += "wireless _first_"
 order += "volume master"
-order += "battery all"
+order += "battery 0"
+order += "disk /"
+order += "disk /home"
+order += "cpu_usage"
+order += "load"
 order += "tztime local"
 
+tztime local {
+        format = " %Y-%m-%d %H:%M:%S "
+}
+
+disk "/home" {
+     format = " %avail "
+}
+
+disk "/" {
+     format = " %avail "
+}
+
+cpu_usage {
+    format = " %usage "
+}
+
+load {
+    format = " %5min 5min "
+}
 
 volume master {
-        format = "<span background='#4c566a'> ♪: %volume </span>"
-        
-        format_muted = "<span background='#4c566a'> ♪: muted (%volume) </span>"
-        device = "pulse"
+    format = " %volume "
+    format_muted = " %volume "
+    device = "default"
+    mixer = "Master"
+    mixer_idx = 0
 }
 
-wireless _first_ {
-        format_up = "<span background='#4c566a'> %essid </span>"
-        format_down = ""
-}
-
-ethernet _first_ {
-        format_up = "<span background='#4c566a'> %ip </span>"
-        format_down = ""
-}
-
-battery all {
-        format = "<span background='#4c566a'> %status %percentage </span>"
-        integer_battery_capacity = true
-        color_good = "#d8dee9"
-        color_degraded = "#d8dee9"
-        color_bad = "#d8dee9"
-}
-
-
-tztime local {
-        format = "<span background='#4c566a'> %time </span>"
-		format_time = "%a %d %b %I:%M %p"
-      
+battery 0 {
+    format = "%status %percentage "
+    format_down = " DOWN "
+    status_chr = " CHARGING "
+    status_bat = " BATTERY "
+    status_unk = " UNKNOWN "
+    #last_full_capacity = true
+    status_full = " FULL "
+    path = "/sys/class/power_supply/BAT%d/uevent"
 }
