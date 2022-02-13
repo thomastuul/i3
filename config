@@ -212,8 +212,6 @@ set $red   #FF4500
 # finds out, if available)
 bar {
     status_command i3status --config ~/.config/i3/i3status.conf
-    # Disable all tray icons
-    tray_output none
     colors {
         background $black
         statusline $white
