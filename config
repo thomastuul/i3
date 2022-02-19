@@ -54,8 +54,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # Change brightness of screen
 # https://itsfoss.com/fix-brightness-ubuntu-1310/
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec $HOME/.config/i3/backlight.sh -dec 500
+bindsym XF86MonBrightnessUp exec $HOME/.config/i3/backlight.sh -inc 500
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
