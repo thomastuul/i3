@@ -20,13 +20,12 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 exec --no-startup-id compton &
 
-# start tray applications
-exec --no-startup-id gnome-settings-daemon
+# autostart tray applications
 exec --no-startup-id nm-applet
-exec --no-startup-id gnome-sound-applet
 exec --no-startup-id dropbox start
+#exec --no-startup-id Stacer
 
-# startup applications
+# autostart applications
 exec --no-startup-id gnome-screenscaver
 exec --no-startup-id gnome-keyring-daemon --start
 exec --no-startup-id conky --daemonize --config=$HOME/.config/i3/conky/conkyrc --pause=2
@@ -41,8 +40,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # Change brightness of screen
 # https://itsfoss.com/fix-brightness-ubuntu-1310/
-bindsym XF86MonBrightnessDown exec $HOME/.config/i3/scripts/backlight.sh -dec 500
-bindsym XF86MonBrightnessUp exec $HOME/.config/i3/scripts/backlight.sh -inc 500
+bindsym XF86MonBrightnessDown exec --no-startup-id $HOME/.config/i3/scripts/backlight.sh -dec 500
+bindsym XF86MonBrightnessUp exec --no-startup-id $HOME/.config/i3/scripts/backlight.sh -inc 500
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -63,7 +62,7 @@ bindsym Print --release exec "scrot $HOME/Bilder/screenshot-'%d-%m-%Y-%H-%M-%S'.
     'xclip -selection c -t image/png < $f' && sleep 1;\
     notify-send 'Screenshot abgelegt in ~/Bilder'"
 
-mode "open app" {
+mode "wähle App" {
      bindsym f exec firefox, mode "default"
      bindsym t exec transmission-gtk, mode "default"
      bindsym n exec nautilus, mode "default"
@@ -82,7 +81,9 @@ assign [class="Telegram"] $ws6
 
 # Open specific applications in floating mode
 for_window [window_role="pop-up"] floating enable
-for_window [class="keepassxc"] floating enable, border none
+for_window [window_role="bubble"] floating enable
+for_window [window_role="dialog"] floating enable
+for_window [window_role="task_dialog"] floating enable
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [title="File Transfer*"] floating enable
 for_window [class="Galculator"] floating enable border pixel 1
@@ -94,9 +95,10 @@ for_window [class="Pavucontrol"] floating enable
 for_window [class="Simple-scan"] floating enable border normal
 for_window [class="Skype"] floating enable border normal
 for_window [title="Stacer"] floating enable 
-for_window [title="Taschenrechner"] floating toggle resize set 512 288; move position center
+for_window [title="Taschenrechner"] floating toggle resize set 512 288, move position center
 for_window [title="Picture-in-Picture"] sticky enable
 for_window [title="Bild-im-Bild"] sticky enable
+for_window [instance="keepassxc"] floating enable, resize set 800 800, move scratchpad, border pixel 5
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
@@ -200,11 +202,6 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-# floating pop up automatically
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="task_dialog"] floating enable
-for_window [class="keepassxc"] floating enable
-
 # use rofi instead dmenu
 #bindsym $mod+d exec —no-startup-id rofi -show run
 
@@ -259,7 +256,7 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-#exec xautolock -time 1 -locker '$i3lock' &
+exec --no-startup-id xautolock -time 1 -locker '$i3lock' &
 
 set $black #000000
 set $white #FFFFFF
@@ -288,3 +285,4 @@ bar {
 }
 
 exec --no-startup-id feh --bg-scale '/home/thomas/Bilder/Wallpaper/0022.jpg'
+
