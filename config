@@ -55,7 +55,13 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # screenshot
-bindsym --release Print exec "scrot -s '%Y:%m:%d:%H:%M:%S.png' -e 'mv $f ~/Bilder'"
+bindsym $mod+Print --release exec "scrot -s $HOME/Bilder/screencut-'%d-%m-%Y-%H-%M-%S'.png -e\
+    'xclip -selection c -t image/png < $f' && sleep 1;\
+    notify-send 'Ausschnitt abgelegt in ~/Bilder'"
+    
+bindsym Print --release exec "scrot $HOME/Bilder/screenshot-'%d-%m-%Y-%H-%M-%S'.png -e\
+    'xclip -selection c -t image/png < $f' && sleep 1;\
+    notify-send 'Screenshot abgelegt in ~/Bilder'"
 
 mode "open app" {
      bindsym f exec firefox, mode "default"
@@ -64,12 +70,14 @@ mode "open app" {
      bindsym r exec rhythmbox, mode "default"
 }
 
-bindsym $mod+o mode "open app"
+bindsym $mod+o mode "wähle App"
 
 # Open applications on specific workspaces
-assign [class="Thunderbird"] $ws3
 assign [class="Pale moon"] $ws2
 assign [class="Firefox"] $ws2
+assign [class="Thunderbird"] $ws3
+assign [class="Evolution"] $ws3
+assign [class="Nautilus"] $ws4
 assign [class="Telegram"] $ws6
 
 # Open specific applications in floating mode
@@ -202,14 +210,13 @@ for_window [class="keepassxc"] floating enable
 
 # shutdown / restart / suspend...
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (CTRL+s) shutdown
-set $i3lock sh ~/.config/i3/scripts/lock.sh
+set $i3lock sh $HOME/.config/i3/scripts/lock.sh
 
 # lock also if lid is closed
 exec --no-startup-id xss-lock -- i3lock --color=ff0000
 
 # lock at shortcut
 bindsym Control+$mod+l exec --no-startup-id $i3lock
-
 
 mode "$mode_system" {
     bindsym l exec --no-startup-id $i3lock, mode "default"
@@ -265,7 +272,7 @@ bar {
     #mode hide
     workspace_buttons yes
     font pango:Roboto Mono, Awesome 10
-    status_command i3status --config ~/.config/i3/i3status.conf
+    status_command i3status --config $HOME/.config/i3/i3status.conf
     colors {
         background $black
         statusline $white
