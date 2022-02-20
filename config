@@ -8,6 +8,13 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:DejaVu Sans Mono, Terminus Bold Semi-Condensed 10
 
+# class                 border  bground text    indicator child_border
+client.focused          #2B9946 #334777 #FF697A #2AF427   #285577
+client.focused_inactive #33250C #236A1F #FFFFFF #484E50   #5F676A
+client.unfocused        #333333 #222222 #888888 #292D2E   #222222
+client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+
 # A 3 px border
 default_border pixel 6
 
@@ -118,7 +125,8 @@ bindsym $mod+m scratchpad show
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# -fn font | -nb color (normal background) | -nf color (normal foreground) | -sb color (selected background) | -sf color (selected foreground)
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -nb '#000000' -nf '#FFFFFF' -sb '#BCC076' -sf '#000000' -fn 'DejaVu Sans Mono:bold:pixelsize=14'"
 bindsym $mod+Ctrl+r exec --no-startup-id rofi -show run
 
 # change focus
@@ -270,7 +278,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# turn off the screen afetr 10min
+# turn off the screen after 10min
 exec --no-startup-id xset dpms 600
 exec --no-startup-id xautolock -time 5 -locker '$i3lock' &
 
