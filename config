@@ -98,7 +98,20 @@ for_window [title="Stacer"] floating enable
 for_window [title="Taschenrechner"] floating toggle resize set 512 288, move position center
 for_window [title="Picture-in-Picture"] sticky enable
 for_window [title="Bild-im-Bild"] sticky enable
-for_window [instance="keepassxc"] floating enable, resize set 800 800, move scratchpad, border pixel 5
+for_window [class="eog"] floating toggle resize set 1024 600, move position center
+for_window [class="keepassxc"] floating toggle resize set 1024 800, move position center
+#for_window [instance="scratchpad"] move window to scratchpad, scratchpad show
+
+# MOD1: "Alt"
+#bindsym Mod1+m exec --no-startup-id Gnome-terminal -name scratchpad -e ranger
+#exec --no-startup-id gnome-terminal -name Scratch -e ranger
+#for_window[class="Gnome-terminal" instance="scratchpad"] move window to scratchpad, border 1pixel
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+m move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+m scratchpad show
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
@@ -256,7 +269,10 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-exec --no-startup-id xautolock -time 1 -locker '$i3lock' &
+
+# turn off the screen afetr 10min
+exec --no-startup-id xset dpms 600
+exec --no-startup-id xautolock -time 5 -locker '$i3lock' &
 
 set $black #000000
 set $white #FFFFFF
