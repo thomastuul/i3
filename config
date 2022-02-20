@@ -29,7 +29,8 @@ exec --no-startup-id dropbox start
 # startup applications
 exec --no-startup-id gnome-screenscaver
 exec --no-startup-id gnome-keyring-daemon --start
-exec --no-startup-id conky --daemonize --config=$HOME/.config/i3/conkyrc --pause=5
+exec --no-startup-id conky --daemonize --config=$HOME/.config/i3/conky/conkyrc --pause=2
+#exec --no-startup-id conky --daemonize --config=$HOME/.config/i3/conky/conky_shortcuts_live_grey --pause=2
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -40,8 +41,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # Change brightness of screen
 # https://itsfoss.com/fix-brightness-ubuntu-1310/
-bindsym XF86MonBrightnessDown exec $HOME/.config/i3/backlight.sh -dec 500
-bindsym XF86MonBrightnessUp exec $HOME/.config/i3/backlight.sh -inc 500
+bindsym XF86MonBrightnessDown exec $HOME/.config/i3/scripts/backlight.sh -dec 500
+bindsym XF86MonBrightnessUp exec $HOME/.config/i3/scripts/backlight.sh -inc 500
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -60,6 +61,7 @@ mode "open app" {
      bindsym f exec firefox, mode "default"
      bindsym t exec transmission-gtk, mode "default"
      bindsym n exec nautilus, mode "default"
+     bindsym r exec rhythmbox, mode "default"
 }
 
 bindsym $mod+o mode "open app"
@@ -68,6 +70,7 @@ bindsym $mod+o mode "open app"
 assign [class="Thunderbird"] $ws3
 assign [class="Pale moon"] $ws2
 assign [class="Firefox"] $ws2
+assign [class="Telegram"] $ws6
 
 # Open specific applications in floating mode
 for_window [window_role="pop-up"] floating enable
@@ -199,8 +202,14 @@ for_window [class="keepassxc"] floating enable
 
 # shutdown / restart / suspend...
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (CTRL+s) shutdown
+set $i3lock sh ~/.config/i3/scripts/lock.sh
 
-set $i3lock sh ~/.config/i3/lock.sh
+# lock also if lid is closed
+exec --no-startup-id xss-lock -- i3lock --color=ff0000
+
+# lock at shortcut
+bindsym Control+$mod+l exec --no-startup-id $i3lock
+
 
 mode "$mode_system" {
     bindsym l exec --no-startup-id $i3lock, mode "default"
