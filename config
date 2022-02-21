@@ -9,8 +9,8 @@ set $mod Mod4
 font pango:DejaVu Sans Mono, Terminus Bold Semi-Condensed 10
 
 # class                 border  bground text    indicator child_border
-client.focused          #36BA7D #C9B52A #000000 #EBFF92   #285577
-client.focused_inactive #8C8C8C #60686B #C6C6C6 #484E50   #5F676A
+client.focused          #36BA7D #C9B52A #000000 #EBFF92   #595959
+client.focused_inactive #8C8C8C #60686B #C6C6C6 #484E50   #484E50
 client.unfocused        #4C4C4C #222222 #888888 #292D2E   #222222
 client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
 client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
@@ -282,10 +282,6 @@ bindsym $mod+r mode "resize"
 exec --no-startup-id xset dpms 600
 exec --no-startup-id xautolock -time 5 -locker '$i3lock' &
 
-set $black #000000
-set $white #FFFFFF
-set $red   #FF4500
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -295,16 +291,16 @@ bar {
     font pango:Roboto Mono, Awesome 10
     status_command i3status --config $HOME/.config/i3/i3status.conf
     colors {
-        background $black
-        statusline $white
-        separator $white 
+        background #000000
+        statusline #FFFFFF
+        separator #FFFFFF
 
         #                  border background text
-        focused_workspace  $background $background $black
-        active_workspace   $black $black $white2
-        inactive_workspace $black $black $foreground
-        urgent_workspace   $red $red $white
-        binding_mode       $background $red $white
+        focused_workspace  #99962D #99962D #000000
+        active_workspace   #A4A4A4 #838383 #000000
+        inactive_workspace #5D5D5D #000000 #FFFEFE
+        urgent_workspace   #FF4500 #FF4500 #FFFFFF
+        binding_mode       #000000 #FF4500 #FFFFFF
     }
 }
 
