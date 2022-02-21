@@ -9,9 +9,9 @@ set $mod Mod4
 font pango:DejaVu Sans Mono, Terminus Bold Semi-Condensed 10
 
 # class                 border  bground text    indicator child_border
-client.focused          #2B9946 #334777 #FF697A #2AF427   #285577
-client.focused_inactive #33250C #236A1F #FFFFFF #484E50   #5F676A
-client.unfocused        #333333 #222222 #888888 #292D2E   #222222
+client.focused          #36BA7D #C9B52A #000000 #EBFF92   #285577
+client.focused_inactive #8C8C8C #60686B #C6C6C6 #484E50   #5F676A
+client.unfocused        #4C4C4C #222222 #888888 #292D2E   #222222
 client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
 client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 
