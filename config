@@ -126,8 +126,8 @@ bindsym $mod+m scratchpad show
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # -fn font | -nb color (normal background) | -nf color (normal foreground) | -sb color (selected background) | -sf color (selected foreground)
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -nb '#000000' -nf '#FFFFFF' -sb '#BCC076' -sf '#000000' -fn 'DejaVu Sans Mono:bold:pixelsize=14'"
-bindsym $mod+Ctrl+r exec --no-startup-id rofi -show run
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -nb '#000000' -nf '#FFFFFF' -sb '#BCC076' -sf '#000000' -fn 'DejaVu Sans Mono:bold:pixelsize=14'"
+bindsym $mod+Ctrl+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -width 20 -show -matching fuzzy -i -dmenu -font "DejaVu Sans Mono 14"'
 
 # change focus
 bindsym $mod+j focus left
