@@ -236,7 +236,7 @@ set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) re
 set $i3lock sh $HOME/.config/i3/scripts/lock.sh
 
 # lock also if lid is closed
-exec --no-startup-id xss-lock -- i3lock --color=ff0000
+exec --no-startup-id xss-lock -- i3lock --color=000000
 
 # lock at shortcut
 bindsym Control+$mod+l exec --no-startup-id $i3lock
