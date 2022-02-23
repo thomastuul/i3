@@ -79,21 +79,25 @@ bindsym Print --release exec "scrot $HOME/Bilder/screenshot-'%d-%m-%Y-%H-%M-%S'.
     notify-send 'Screenshot abgelegt in ~/Bilder'"
 
 mode "wähle App" {
-     bindsym f exec firefox, mode "default"
-     bindsym t exec transmission-gtk, mode "default"
-     bindsym n exec nautilus, mode "default"
+     bindsym f exec firefox,   mode "default"
+     bindsym t exec gedit,     mode "default"
+     bindsym n exec nautilus,  mode "default"
      bindsym r exec rhythmbox, mode "default"
+     # back to normal: Enter or Escape
+     bindsym q      mode "default"
+     bindsym Escape mode "default"
 }
 
 bindsym $mod+o mode "wähle App"
 
-# Open applications on specific workspaces
+# Open applications on specific workspaces, use xprop | grep 'CLASS' to get class name
 assign [class="Pale moon"] $ws2
 assign [class="Firefox"] $ws2
-assign [class="Thunderbird"] $ws3
-assign [class="Evolution"] $ws3
+assign [class="Thunderbird"] $ws5
+assign [class="Evolution"] $ws5
 assign [class="Nautilus"] $ws4
 assign [class="Telegram"] $ws6
+assign [class="Gedit"] $ws3
 
 # Open specific applications in floating mode
 for_window [window_role="pop-up"] floating enable
@@ -190,9 +194,9 @@ bindsym $mod+a focus parent
 # workspaces
 set $ws1 1: term
 set $ws2 2: web
-set $ws3 3: mail
+set $ws3 3: notes
 set $ws4 4: file
-set $ws5 5: notes
+set $ws5 5: mail
 set $ws6 6: telegram
 set $ws7 7: code
 set $ws8 8: movie
@@ -259,6 +263,10 @@ mode "$mode_system" {
 }
 
 bindsym $mod+BackSpace mode "$mode_system"
+# gsettings set org.gnome.settings-daemon.plugins.power button-power Nothing
+# to reaktivate XF86PowerOff for gnome:
+# gsettings set org.gnome.settings-daemon.plugins.power button-power Shutdown
+#bindsym --release XF86PowerOff mode "$mode_system"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
