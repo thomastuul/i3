@@ -99,6 +99,9 @@ assign [class="Nautilus"] $ws4
 assign [class="Telegram"] $ws6
 assign [class="Gedit"] $ws3
 
+# switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
+
 # Open specific applications in floating mode
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
@@ -122,12 +125,12 @@ for_window [class="eog"] floating enable resize set 1024 600, move position cent
 for_window [class="keepassxc"] floating toggle resize set 1024 800, move position center
 for_window [class="Cheese"] floating enable resize set 800 600, move position center
 
-bindsym Mod1+m exec --no-startup-id gnome-terminal --name=dropdown -e tmux
-for_window [instance="dropdown"] move window to scratchpad
+# move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
 
-# Make the currently focused window a scratchpad
-bindsym $mod+m          [instance="dropdown"] scratchpad show
-bindsym $mod+Shift+m    resize shrink height 10 px or 10 ppt
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
