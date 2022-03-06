@@ -129,6 +129,7 @@ for_window [class="Cheese"] floating enable resize set 800 600, move position ce
 for_window [class="Audacious"] floating enable resize set 800 600, move position center
 for_window [class="tuxedo-control-center"] floating enable resize set 800 600, move position center
 for_window [class="Blueman-manager"] floating enable resize set 512 320, move position center
+for_window [class="Virt-manager"] floating enable resize set 600 350, move position center
 
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -144,7 +145,7 @@ bindsym $mod+minus scratchpad show
 # installed.
 # -fn font | -nb color (normal background) | -nf color (normal foreground) | -sb color (selected background) | -sf color (selected foreground)
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -nb '#000000' -nf '#FFFFFF' -sb '#BCC076' -sf '#000000' -fn 'DejaVu Sans Mono:bold:pixelsize=14'"
-bindsym $mod+Ctrl+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -width 20 -show -matching fuzzy -i -dmenu -font "DejaVu Sans Mono 14"'
+bindsym $mod+Ctrl+d exec rofi -location 0 -show drun -sidebar-mode -columns 3 
 
 # change focus
 bindsym $mod+j focus left
