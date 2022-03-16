@@ -5,7 +5,7 @@ conky.config = {
 -- Bar theme b/w for conky
 
 use_xft = true,
-font = 'Fantasque Sans Mono:bold:size=10',
+font = 'Fantasque Sans Mono:bold:size=8',
 xftalpha = 1.0,
 update_interval = 3,
 total_run_times = 0,
