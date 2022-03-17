@@ -87,6 +87,7 @@ mode "wähle App" {
      bindsym m exec mousepad,       mode "default"
      bindsym t exec thunar,         mode "default"
      bindsym a exec audacious,      mode "default"
+     bindsym o exec obs --minimize-to-tray, mode "default"
      # back to normal: Enter or Escape
      bindsym q      mode "default"
      bindsym Escape mode "default"
