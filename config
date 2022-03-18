@@ -125,12 +125,13 @@ for_window [class="Galculator"] floating toggle resize set 512 288, move positio
 for_window [title="Picture-in-Picture"] sticky enable
 for_window [title="Bild-im-Bild"] sticky enable
 for_window [class="Viewnior"] floating enable resize set 1024 600, move position center
-for_window [class="keepassxc"] floating toggle resize set 1024 800, move position center
+for_window [class="KeePassXC"] floating toggle resize set 1024 800, move position center
 for_window [class="Cheese"] floating enable resize set 800 600, move position center
 for_window [class="Audacious"] floating enable resize set 800 600, move position center
 for_window [class="tuxedo-control-center"] floating enable resize set 800 600, move position center
 for_window [class="Blueman-manager"] floating enable resize set 512 320, move position center
 for_window [class="Virt-manager"] floating enable resize set 600 350, move position center
+for_window [class="Quodlibet"] floating enable resize set 600 350, move position center
 
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
