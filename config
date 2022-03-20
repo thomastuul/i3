@@ -43,7 +43,7 @@ exec --no-startup-id conky --daemonize --config=$HOME/.config/i3/conky/conkyrc -
 exec_always --no-startup-id numlockx on
 
 # set desktop wallpaper
-exec --no-startup-id feh --bg-scale "$HOME/Bilder/Wallpaper/0022.jpg"
+exec --no-startup-id feh --bg-scale "$HOME/Bilder/Wallpaper/abstract.jpg"
 
 # Use amixer to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
