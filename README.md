@@ -38,10 +38,10 @@ For the colors of your choice you can use the link:
 https://thomashunter.name/i3-configurator/
 
 ### Screenshots
-![01](../blob/main/screenshots/screenshot-01.pn)
+![01](screenshots/screenshot-01.pn)
 
-![02](../blob/main/screenshots/screenshot-02.pn)
+![02](screenshots/screenshot-02.pn)
 
-![03](../blob/main/screenshots/screenshot-03.pn)
+![03](screenshots/screenshot-03.pn)
 
 
