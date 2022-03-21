@@ -103,7 +103,6 @@ assign [class="Brave-browser"] $ws2
 assign [class="thunderbird"] $ws5
 assign [class="Evolution"] $ws5
 assign [class="Thunar"] $ws4
-assign [class="Telegram"] $ws6
 assign [class="Mousepad"] $ws3
 
 # switch to workspace with urgent window automatically
@@ -131,7 +130,6 @@ for_window [class="Viewnior"] floating enable resize set 1024 600, move position
 for_window [class="KeePassXC"] floating toggle resize set 1024 800, move position center
 for_window [class="Cheese"] floating enable resize set 800 600, move position center
 for_window [class="Audacious"] floating enable resize set 800 600, move position center
-for_window [class="tuxedo-control-center"] floating enable resize set 800 600, move position center
 for_window [class="Blueman-manager"] floating enable resize set 512 320, move position center
 for_window [class="Virt-manager"] floating enable resize set 600 350, move position center
 for_window [class="Quodlibet"] floating enable resize set 600 350, move position center
@@ -293,7 +291,7 @@ mode "resize" {
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
-        bindsym odiaeresis resize grow width 10 px or 10 ppt
+        bindsym o resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
