@@ -1,8 +1,8 @@
-#+TITLE: TT's i3 configuration
+# TT's i3 configuration
 
 **my personal i3 configuration**
 
-## What you need...
+### What you need...
 ```
 i3
 i3-wm
@@ -20,7 +20,7 @@ imagemagick (for mogrify)
 I used the XFCE DE as a base system so several useful apps like nm-applet etc. are listed for tray-applications.
 This depends on you and you will configure your own i3 for your needs.
 
-some other useful stuff:
+### some other useful stuff:
 ```
 nm-applet
 blueman-applet
@@ -37,7 +37,7 @@ xautolock
 For the colors of your choice you can use the link:
 https://thomashunter.name/i3-configurator/
 
-## Screenshots
+### Screenshots
 ![01](/screenshots/screenshot-01.pn)
 
 ![02](/screenshots/screenshot-02.pn)
