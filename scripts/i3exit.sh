@@ -26,7 +26,7 @@ case "$1" in
         $logind suspend
         ;;
     hibernate)
-        $logind hibernate && lock
+        $logind hibernate
         ;;
     reboot)
         $logind reboot
