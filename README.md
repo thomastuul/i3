@@ -22,6 +22,7 @@ This depends on you and you will configure your own i3 for your needs.
 
 ### some other useful stuff:
 ```
+ranger
 nm-applet
 blueman-applet
 xfce4-clipman
