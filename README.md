@@ -16,6 +16,7 @@ fonts-hack
 feh
 scrot
 imagemagick (for mogrify)
+compton (transparency, shadows)
 ```
 I used the XFCE DE as a base system so several useful apps like nm-applet etc. are listed for tray-applications.
 This depends on you and you will configure your own i3 for your needs.
