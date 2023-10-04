@@ -28,7 +28,7 @@ default_border pixel 6
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
-exec --no-startup-id compton &
+exec --no-startup-id picom &
 
 # autostart tray applications
 exec --no-startup-id nm-applet
